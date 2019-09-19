@@ -17,9 +17,8 @@ public class TestController {
 
 	@RequestMapping("/test")
 	public String home() {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("name", "赵丰顺丰单map");
-		String msg = restTemplate.getForEntity("http://eureka-client/hello", String.class,map)
+	
+		String msg = restTemplate.postForEntity("http://eureka-client/hello?name=赵丰登",null, String.class)
 				.getBody();
 		System.out.println("customer====test=====收到了========"+msg);
 		return msg;
@@ -36,7 +35,7 @@ public class TestController {
 	public String home3() {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("name", "赵丰顺丰单map");
-		String msg = restTemplate.getForEntity("http://eureka-client/hello6", String.class,map)
+		String msg = restTemplate.postForEntity("http://eureka-client/hello3?name=sfds",map, String.class)
 				.getBody();
 		System.out.println("customer===test3======收到了========"+msg);
 		return msg;
