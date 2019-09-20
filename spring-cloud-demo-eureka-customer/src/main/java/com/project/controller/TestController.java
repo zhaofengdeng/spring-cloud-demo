@@ -48,7 +48,7 @@ public class TestController {
 	public List<User> home4() {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("name", "赵丰登");
-		TestForm form = restTemplate.postForEntity("http://eureka-client/hello4",map, TestForm.class,map)
+		TestForm form = restTemplate.postForEntity("http://eureka-client/hello4",map, TestForm.class)
 				.getBody();
 		for (User user : form.users) {
 			System.out.println(user.getName()+"========="+user.getUserPhone());
