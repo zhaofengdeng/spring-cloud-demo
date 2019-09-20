@@ -1,6 +1,8 @@
 package com.project.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -8,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.project.form.TestForm;
+import com.project.model.User;
 
 @RestController
 public class TestController {
@@ -41,5 +46,19 @@ public class TestController {
 	@RequestMapping("/hello2")
 	public String home2() {
 		return "client=======hello2=============";
+	}
+	@RequestMapping("/hello4")
+	public  TestForm  home4(@RequestBody String name) {
+		TestForm form=new TestForm();
+		List<User> users=new ArrayList<User>();
+		for (int i=0;i<10;i++) {
+			User user=new User();
+			user.setName(name+i);
+			user.setUserPhone("00"+i);
+			users.add(user);
+		}
+		form.name="formName"+name;
+		form.users=users;
+		return form;
 	}
 }
