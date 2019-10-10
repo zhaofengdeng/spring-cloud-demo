@@ -1,0 +1,19 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://localhost:8761/eureka/
+server:
+  port: 8071
+spring:
+  application:
+    name: config-server
+    
+  cloud:
+    config:
+      server:
+        git:
+          uri:  https://github.com/zhaofengdeng/spring-cloud-config.git
+          search-paths: test
+          username: zhaofengdeng
+          password: zhaofengdeng123
+
