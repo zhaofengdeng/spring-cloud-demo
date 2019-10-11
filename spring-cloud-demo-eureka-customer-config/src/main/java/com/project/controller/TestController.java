@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.project.config.EmailConfig;
+import com.project.config.WeiChatConfig;
 
 @RestController
 @RefreshScope
@@ -22,9 +23,11 @@ public class TestController {
 	private String account;
 	@Autowired
 	private EmailConfig config;
+	@Autowired
+	private WeiChatConfig weiChatConfig;
 	@RequestMapping("/test")
 	public String home() {
-		return account+"========"+config.getAccount();
+		return account+"========"+config.getAccount()+"====="+weiChatConfig.getAppid();
 	}
 	
 }
